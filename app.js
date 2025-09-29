@@ -80,6 +80,8 @@ app.get('/login/:username', (req, res) => {
             conn.release().then();
             if (rows.length === 1) {
                 res.send(rows[0].password);
+            } else {
+                res.send(null);
             }
         });
     });
@@ -138,5 +140,5 @@ app.get('/country/:name', (req, res) => {
 
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
+    console.log(`gtc-backend app listening on port ${port}`)
 })
